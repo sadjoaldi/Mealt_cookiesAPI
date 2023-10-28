@@ -1,5 +1,4 @@
 function Card({ foods }) {
-  // console.log(props);
   return (
     <div className="meal_container">
       <h2>{foods.strMeal}</h2>

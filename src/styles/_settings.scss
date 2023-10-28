@@ -1,0 +1,15 @@
+$font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+$color_primary: rgb(228, 142, 29);
+$color_secondary: rgb(182, 180, 180);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $color_secondary;
+  font-family: $font;
+}
