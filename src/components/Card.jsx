@@ -1,10 +1,10 @@
-function Card({ foods }) {
+function Card({ item }) {
   return (
     <div className="meal_container">
-      <h2>{foods.strMeal}</h2>
-      <span>Origin : {foods.strArea}</span>
-      <img src={foods.strMealThumb} alt={foods.strMeal} />
-      <p>{foods.strInstructions}</p>
+      <h2>{item.strMeal}</h2>
+      <span>Origin : {item.strArea}</span>
+      <img src={item.strMealThumb} alt={item.strMeal} />
+      <p>{item.strInstructions}</p>
     </div>
   );
 }
