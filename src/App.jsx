@@ -1,25 +1,39 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Card from "./components/Card";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./About";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [mealdb, setMealDb] = useState([]);
 
-  // https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
+  useEffect(() => {
+    axios
+      .get(" https://www.themealdb.com/api/json/v1/1/search.php?s=")
+      .then((res) => setMealDb(res.data.meals));
+  }, []);
 
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+    <div className="meals">
+      <h1>World MEALS</h1>
+      <form>
+        <input type="text" placeholder="Enter the name of meal" />
+      </form>
+      <div className="mealbox">
+        {mealdb.map((foods) => {
+          return <Card key={foods.idMeal} foods={foods} />;
+        })}
+      </div>
     </div>
   );
 }
 
 export default App;
+{
+  /* <BrowserRouter>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </BrowserRouter> */
+}
